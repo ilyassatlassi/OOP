@@ -1,11 +1,11 @@
 require_relative 'decorator'
 
-class TrimmerDecorator 
+class TrimmerDecorator < Decorator
     def correct_name
-        if @name.length > 10
-            @name[0..9]
+        if super().length > 10
+            super()[0..9]
           else
-            @name
+            super()
           end
         end
 end

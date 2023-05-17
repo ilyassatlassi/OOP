@@ -1,4 +1,8 @@
 require_relative 'nameable'
+require_relative 'TrimmerDecorator'
+require_relative 'CapitalizeDecorator'
+
+
 
 
 class Person < Nameable
@@ -26,3 +30,11 @@ class Person < Nameable
     @age >= 18
   end
 end
+
+
+person = Person.new(22, name:'maximilianus')
+  puts person.correct_name
+  capitalizedPerson = CapitalizeDecorator.new(person)
+  puts capitalizedPerson.correct_name
+  capitalizedTrimmedPerson = TrimmerDecorator.new(capitalizedPerson)
+  puts capitalizedTrimmedPerson.correct_name
