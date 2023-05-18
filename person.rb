@@ -29,8 +29,6 @@ class Person < Nameable
     @rentals << rental
   end
 
-
-
   private
 
   def of_age?
