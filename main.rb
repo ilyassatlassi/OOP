@@ -1,7 +1,7 @@
 require_relative 'app'
 
 def main
-  @app = App.new
+  app = App.new
   puts 'Welcome to School Library App!'
   loop do
     puts 'Please choose an option by entering a number:'
@@ -12,26 +12,36 @@ def main
     puts '5. Create a rental'
     puts '6. List all rentals for a given person ID'
     puts '7. Quit'
-    option = gets.chomp
-    case option
-    when '1'
-        @app.list_books
-    when '2'
-        @app.list_people
-    when '3'
-        @app.create_person
-    when '4'
-        @app.create_book
-    when '5'
-        @app.create_rental
-    when '6'
-        @app.rental_list
-    when '7'
-        puts 'Thank you for using our library ¯\^-^/¯'
-        return
-    else
-        puts 'Please enter a number between 1 and 7'
-    end
+    option(app)
   end
 end
+# rubocop:enable Metrics/CyclomaticComplexity
+def option(app)
+  option = gets.chomp
+  case option
+  when '1'
+    app.list_books
+  when '2'
+    app.list_people
+  when '3'
+    app.create_person
+  when '4'
+    app.create_book
+  when '5'
+    app.create_rental
+  when '6'
+    app.rental_list
+  when '7'
+    exit_option
+  else
+    puts 'Please enter a number between 1 and 7'
+  end
+end
+# rubocop:enable Metrics/CyclomaticComplexity
+
+def exit_option
+  puts 'Thank you for using our library ¯\^-^/¯'
+  exit
+end
+
 main

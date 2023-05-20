@@ -5,33 +5,35 @@ require_relative 'student'
 require_relative 'rental'
 
 class App
-    def initialize
-        @peoples = []
-        @books = []
-        @rentals = []
-    end
-#create a list of BOOK
-    def list_books
-        if @books.empty?
-            puts 'Oops! the library is empty, please add books'
-            return
-          end
-          @books.each do |book|
-            puts "Title: #{book.title}, Author: #{book.author}"
-          end
-    end
-#create a list of people
-    def list_people
-        if @peoples.empty?
-            puts 'Oops! the list is empty, please add people'
-            return
-          end
-          @peoples.each do |people|
-            puts "Name: #{people.name}, ID: #{people.id}, Age: #{people.age}"
-          end
-    end
+  def initialize
+    @peoples = []
+    @books = []
+    @rentals = []
+  end
 
-     # Create a person
+  # create a list of BOOK
+  def list_books
+    if @books.empty?
+      puts 'Oops! the library is empty, please add books'
+      return
+    end
+    @books.each do |book|
+      puts "Title: #{book.title}, Author: #{book.author}"
+    end
+  end
+
+  # create a list of people
+  def list_people
+    if @peoples.empty?
+      puts 'Oops! the list is empty, please add people'
+      return
+    end
+    @peoples.each do |people|
+      puts "Name: #{people.name}, ID: #{people.id}, Age: #{people.age}"
+    end
+  end
+
+  # Create a person
   def create_person
     puts 'Do you want to  create a student (1) or a teacher(2)?'
     input_result = gets.chomp.to_i
@@ -78,7 +80,7 @@ class App
     puts 'Teacher Created Successfully'
   end
 
-  #Create a book
+  # Create a book
   def create_book
     print 'Title: '
     title = gets.chomp
@@ -91,7 +93,7 @@ class App
     puts 'Book created successfully'
   end
 
-  #crete Rental
+  # crete Rental
   def create_rental
     puts 'Select a book from the following list by number'
     @books.each_with_index do |book, index|
@@ -119,11 +121,10 @@ class App
     person_id = gets.chomp.to_i
 
     rentals = @rentals.filter { |rental| rental.person.id == person_id }
-    
+
     puts 'Rentals:'
     rentals.each do |rental|
-        puts "Date: #{rental.date}, Book: '#{rental.book.title}'"
+      puts "Date: #{rental.date}, Book: '#{rental.book.title}'"
     end
-end
-
+  end
 end
