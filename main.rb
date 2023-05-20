@@ -15,7 +15,7 @@ def main
     option(app)
   end
 end
-# rubocop:enable Metrics/CyclomaticComplexity
+
 def option(app)
   option = gets.chomp
   case option
@@ -31,13 +31,10 @@ def option(app)
     app.create_rental
   when '6'
     app.rental_list
-  when '7'
-    exit_option
   else
-    puts 'Please enter a number between 1 and 7'
+    exit_option
   end
 end
-# rubocop:enable Metrics/CyclomaticComplexity
 
 def exit_option
   puts 'Thank you for using our library ¯\^-^/¯'
