@@ -10,7 +10,7 @@ class App
         @books = []
         @rentals = []
     end
-
+#create a list of BOOK
     def list_books
         if @books.empty?
             puts 'Oops! the library is empty, please add books'
@@ -20,7 +20,7 @@ class App
             puts "Title: #{book.title}, Author: #{book.author}"
           end
     end
-
+#create a list of people
     def list_people
         if @peoples.empty?
             puts 'Oops! the list is empty, please add people'
@@ -111,9 +111,18 @@ class App
 
     @rentals << Rental.new(date, @people[person_id], @books[book_id])
     puts 'Rental created successfully'
+  end
+
+  # create  Rental list
+  def rental_list
+    print 'ID of person:'
+    person_id = gets.chomp.to_i
+
+    rentals = @rentals.filter { |rental| rental.person.id == person_id }
+
+    rentals.each do |rental|
+        puts "Date: #{rental.date}, Book: '#{rental.book.title}'"
+    end
 end
-
-
-
 
 end
