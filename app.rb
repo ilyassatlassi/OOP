@@ -100,7 +100,7 @@ class App
 
     book_id = gets.chomp.to_i
     puts 'Select a person from the following list by number (not ID)'
-    @people.each_with_index do |person, index|
+    @peoples.each_with_index do |person, index|
       puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
 
@@ -109,7 +109,7 @@ class App
     print 'Date: '
     date = gets.chomp
 
-    @rentals << Rental.new(date, @people[person_id], @books[book_id])
+    @rentals << Rental.new(date, @peoples[person_id], @books[book_id])
     puts 'Rental created successfully'
   end
 
