@@ -50,7 +50,7 @@ class App
     name = gets.chomp
 
     print 'Age:'
-    age = gets.chomp
+    age = gets.chomp.to_i
 
     print 'Has Parent permission? [Y/N]'
     permission = gets.chomp
@@ -68,7 +68,7 @@ class App
     name = gets.chomp
 
     print 'Age'
-    age = gets.chomp
+    age = gets.chomp.to_i
 
     print 'specialization'
     specialization = gets.chomp
@@ -76,6 +76,19 @@ class App
     teacher = Teacher.new(age, specialization, name)
     @peoples.push(teacher)
     puts 'Teacher Created Successfully'
+  end
+
+  #Create a book
+  def create_book
+    print 'Title: '
+    title = gets.chomp
+
+    print 'Author: '
+    author = gets.chomp
+
+    @books << Book.new(title, author)
+
+    puts 'Book created successfully'
   end
 
 
