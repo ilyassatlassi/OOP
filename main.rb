@@ -1,16 +1,15 @@
-
 require_relative 'app'
 
 class Menu
-    MENU_OPTIONS = [
-        { number: '1', label: 'List all books', action: :list_books },
-        { number: '2', label: 'List all people', action: :list_people },
-        { number: '3', label: 'Create a person', action: :create_person },
-        { number: '4', label: 'Create a book', action: :create_book },
-        { number: '5', label: 'Create a rental', action: :create_rental },
-        { number: '6', label: 'List all rentals for a given person ID', action: :rental_list },
-        { number: '7', label: 'Quit', action: :quit }
-      ].freeze
+  MENU_OPTIONS = [
+    { number: '1', label: 'List all books', action: :list_books },
+    { number: '2', label: 'List all people', action: :list_people },
+    { number: '3', label: 'Create a person', action: :create_person },
+    { number: '4', label: 'Create a book', action: :create_book },
+    { number: '5', label: 'Create a rental', action: :create_rental },
+    { number: '6', label: 'List all rentals for a given person ID', action: :rental_list },
+    { number: '7', label: 'Quit', action: :quit }
+  ].freeze
 
   def initialize(app)
     @app = app
@@ -26,6 +25,7 @@ class Menu
   def handle_option(option)
     selected_option = MENU_OPTIONS.find { |item| item[:number] == option }
     return exit_option if selected_option.nil?
+
     @app.send(selected_option[:action])
   end
 
@@ -36,7 +36,3 @@ class Menu
     exit
   end
 end
-
-
-
-LibraryApp.new.start
