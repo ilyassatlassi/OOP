@@ -36,3 +36,21 @@ class Menu
     exit
   end
 end
+
+class LibraryApp
+  def initialize
+    @app = App.new
+    @menu = Menu.new(@app)
+  end
+
+  def start
+    puts 'Welcome to School Library App!'
+    loop do
+      @menu.display_menu
+      option = gets.chomp
+      @menu.handle_option(option)
+    end
+  end
+end
+
+LibraryApp.new.start
