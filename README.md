@@ -89,8 +89,8 @@ git clone https://github.com/ilyassatlassi/OOP.git
 - LinkedIn: [Ilyass Atlassi](https://www.linkedin.com/in/ilyassatlassi/)
 
 ### 👤 **Mugisha Innocent**:
-- GitHub: [TAfloninno](https://github.com/Tafloninno)
-- LinkedIn: [Mugisha Innoce](https://www.linkedin.com/in/mugisha-innocent/)
+- GitHub: [Tafloninno](https://github.com/Tafloninno)
+- LinkedIn: [Mugisha Innocent](https://www.linkedin.com/in/mugisha-innocent/)
   
 # 🔭 Future Features:
 - Add more advanced Ruby functions.
