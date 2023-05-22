@@ -23,11 +23,11 @@ class Menu
     end
   end
 
-#   def handle_option(option)
-#     selected_option = MENU_OPTIONS.find { |item| item[:number] == option }
-#     return exit_option if selected_option.nil?
-#     @app.send(selected_option[:action])
-#   end
+  def handle_option(option)
+    selected_option = MENU_OPTIONS.find { |item| item[:number] == option }
+    return exit_option if selected_option.nil?
+    @app.send(selected_option[:action])
+  end
 
   private
 
