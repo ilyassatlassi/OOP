@@ -11,13 +11,13 @@ def save_rentals(array)
     base = "#{Dir.pwd}/data"
     empty_array = []
     array.each { |e| empty_array.push({ date: e.date, book: e.book.title, person: e.person.id }) }
-    File.write("#{base}/rentals_list.json", empty_array.to_json, mode: 'w')
+    File.write("#{base}/rentals.json", empty_array.to_json, mode: 'w')
   end
   
   def save_books(array)
     base = "#{Dir.pwd}/data"
     books_array = array.map { |e| { title: e.title, author: e.author } }
-    File.write("#{base}/books_list.json", books_array.to_json, mode: 'w')
+    File.write("#{base}/books.json", books_array.to_json, mode: 'w')
   end
   
   def save_people(array)
