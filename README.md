@@ -84,9 +84,13 @@ git clone https://github.com/ilyassatlassi/OOP.git
 
 ## 👥 Authors <a name="authors"></a>
 ### 👤 **Ilyass Atlassi**:
-- GitHub: [@ilyassatlass](https://github.com/ilyassatlass)
-- Twitter: [@ilyass_atlassi](https://twitter.com/ilyass_atlassi)
+- GitHub: [ilyassatlass](https://github.com/ilyassatlass)
+- Twitter: [ilyass_atlassi](https://twitter.com/ilyass_atlassi)
 - LinkedIn: [Ilyass Atlassi](https://www.linkedin.com/in/ilyassatlassi/)
+
+### 👤 **Mugisha Innocent**:
+- GitHub: [Tafloninno](https://github.com/Tafloninno)
+- LinkedIn: [Mugisha Innocent](https://www.linkedin.com/in/mugisha-innocent/)
   
 # 🔭 Future Features:
 - Add more advanced Ruby functions.
@@ -111,7 +115,7 @@ If you liked this project, give it a ⭐️ and kindly send to me an e-mail expr
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse team for this journey.
+I would like to thank Microverse team and My partner for this journey.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
