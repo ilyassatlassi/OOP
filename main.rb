@@ -1,4 +1,5 @@
 require_relative 'app'
+require './data_store'
 
 class Menu
   MENU_OPTIONS = [

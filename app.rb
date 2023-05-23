@@ -3,12 +3,22 @@ require_relative 'person'
 require_relative 'teacher'
 require_relative 'student'
 require_relative 'rental'
+require 'json'
+
 
 class App
   def initialize
     @peoples = []
     @books = []
     @rentals = []
+    base = "#{Dir.pwd}/data"
+    books_reader = File.read("#{base}/books_list.json")
+    people_reader = File.read("#{base}/people_list.json")
+    rentals_reader = File.read("#{base}/rentals_list.json")
+    JSON.parse(books_reader).each { |x| @book_list.push(Book.new(x['title'], x['author'])) } unless books_reader == ''
+
+    handle_people(people_reader == '' ? [] : JSON.parse(people_reader))
+    handle_rentals(rentals_reader == '' ? [] : JSON.parse(rentals_reader))
   end
 
   # create a list of BOOK
