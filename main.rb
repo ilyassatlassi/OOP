@@ -28,7 +28,7 @@ class Menu
     selected_option = MENU_OPTIONS.find { |item| item[:number] == option }
     # binding.pry
     if selected_option.nil?
-      return exit_option
+      exit_option
     elsif option == '4'
       @app.send(selected_option[:action])
       save_books(@app.books)
@@ -42,7 +42,7 @@ class Menu
       @app.send(selected_option[:action])
     end
   end
-  
+
 
   private
 

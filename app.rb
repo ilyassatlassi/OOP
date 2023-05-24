@@ -8,14 +8,15 @@ require 'json'
 
 class App
   attr_accessor :peoples, :books, :rentals
+
   def initialize
     @peoples = []
     @books = []
     @rentals = []
     base = "#{Dir.pwd}/data"
     books_reader = File.read("#{base}/books.json")
-    people_reader = File.read("#{base}/people.json")
-    rentals_reader = File.read("#{base}/rentals.json")
+    File.read("#{base}/people.json")
+    File.read("#{base}/rentals.json")
     JSON.parse(books_reader).each { |x| @books.push(Book.new(x['title'], x['author'])) } unless books_reader == ''
 
 
@@ -44,7 +45,7 @@ class App
   #     @rentals_list.push(Rental.new(x['date'], find_a_book[0], find_a_person[0]))
   #   end
   # end
-  
+
   # create a list of BOOK
   def list_books
     if @books.empty?
