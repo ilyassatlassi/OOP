@@ -21,9 +21,8 @@ class App
     JSON.parse(books_reader).each { |x| @books.push(Book.new(x['title'], x['author'])) } unless books_reader == ''
     handle_people(people_reader == '' ? [] : JSON.parse(people_reader))
     handle_rentals(rentals_reader == '' ? [] : JSON.parse(rentals_reader))
-  end
 
-  def handle_people(arr)
+    def handle_people(arr)
     arr.each do |person|
       if person['person'] == 'Teacher'
         teacher = Teacher.new(person['age'], person['specialization'], name: person['name'])
