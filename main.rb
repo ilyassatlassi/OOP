@@ -1,4 +1,6 @@
 require_relative 'app'
+require './store_data'
+# require 'pry'
 
 class Menu
   MENU_OPTIONS = [
@@ -24,9 +26,21 @@ class Menu
 
   def handle_option(option)
     selected_option = MENU_OPTIONS.find { |item| item[:number] == option }
-    return exit_option if selected_option.nil?
-
-    @app.send(selected_option[:action])
+    # binding.pry
+    if selected_option.nil?
+      exit_option
+    elsif option == '4'
+      @app.send(selected_option[:action])
+      save_books(@app.books)
+    elsif option == '3'
+      @app.send(selected_option[:action])
+      save_people(@app.peoples)
+    elsif option == '5'
+      @app.send(selected_option[:action])
+      save_rentals(@app.rentals)
+    else
+      @app.send(selected_option[:action])
+    end
   end
 
   private
