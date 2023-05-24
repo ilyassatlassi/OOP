@@ -43,7 +43,6 @@ class Menu
     end
   end
 
-
   private
 
   def exit_option
