@@ -5,7 +5,6 @@ require_relative 'student'
 require_relative 'rental'
 require 'json'
 
-
 class App
   attr_accessor :peoples, :books, :rentals
 
@@ -15,34 +14,35 @@ class App
     @rentals = []
     base = "#{Dir.pwd}/data"
     books_reader = File.read("#{base}/books.json")
+    people_reader = File.read("#{base}/people.json")
+    rentals_reader = File.read("#{base}/rentals.json")
     File.read("#{base}/people.json")
     File.read("#{base}/rentals.json")
     JSON.parse(books_reader).each { |x| @books.push(Book.new(x['title'], x['author'])) } unless books_reader == ''
+    handle_people(people_reader == '' ? [] : JSON.parse(people_reader))
+    handle_rentals(rentals_reader == '' ? [] : JSON.parse(rentals_reader))
+  end
 
-
-    # handle_people(people_reader == '' ? [] : JSON.parse(people_reader))
-    def handle_people(arr)
+  def handle_people(arr)
     arr.each do |person|
       if person['person'] == 'Teacher'
-        teacher = Teacher.new(person['age'], person['specialization'], person['name'])
+        teacher = Teacher.new(person['age'], person['specialization'], name: person['name'])
         teacher.id = person['id']
         @peoples.push(teacher)
       else
-        student = Student.new(person['age'], person['name'], parent_permission: person['parent_permission'])
+        student = Student.new(person['age'], name: person['name'], parent_permission: person['parent_permission'])
         student.id = person['id']
         @peoples.push(student)
       end
     end
   end
-   # handle_rentals(rentals_reader == '' ? [] : JSON.parse(rentals_reader))
+
   def handle_rentals(arr)
     arr.each do |x|
       find_a_person = @peoples.select { |p| p.id == x['person'] }
       find_a_book = @books.select { |b| b.title == x['book'].to_s }
-      @rentals_list.push(Rental.new(x['date'], find_a_book[0], find_a_person[0]))
+      @rentals.push(Rental.new(x['date'], find_a_book[0], find_a_person[0]))
     end
-  end
-   
   end
 
   # create a list of BOOK
@@ -93,7 +93,7 @@ class App
     permission = true if %w[Y y].include?(permission)
     permission = false if %w[N n].include?(permission)
 
-    student = Student.new(age, nil, name: name, parent_permission: permission)
+    student = Student.new(age, name: name, parent_permission: permission)
     @peoples.push(student)
     puts 'Student Created Successfully'
   end
@@ -160,5 +160,10 @@ class App
     rentals.each do |rental|
       puts "Date: #{rental.date}, Book: '#{rental.book.title}'"
     end
+  end
+
+  def quit
+    puts 'Thank you for using our library ¯\^-^/¯'
+    exit
   end
 end
