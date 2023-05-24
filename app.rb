@@ -20,7 +20,7 @@ class App
     JSON.parse(books_reader).each { |x| @books.push(Book.new(x['title'], x['author'])) } unless books_reader == ''
 
 
-    # handle_people(people_reader == '' ? [] : JSON.parse(people_reader))
+    
     def handle_people(arr)
     arr.each do |person|
       if person['person'] == 'Teacher'
@@ -34,7 +34,7 @@ class App
       end
     end
   end
-   # handle_rentals(rentals_reader == '' ? [] : JSON.parse(rentals_reader))
+  
   def handle_rentals(arr)
     arr.each do |x|
       find_a_person = @peoples.select { |p| p.id == x['person'] }
