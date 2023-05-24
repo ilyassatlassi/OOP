@@ -7,6 +7,7 @@ require 'json'
 
 
 class App
+  attr_accessor :peoples, :books, :rentals
   def initialize
     @peoples = []
     @books = []
@@ -17,10 +18,33 @@ class App
     rentals_reader = File.read("#{base}/rentals.json")
     JSON.parse(books_reader).each { |x| @books.push(Book.new(x['title'], x['author'])) } unless books_reader == ''
 
-    handle_people(people_reader == '' ? [] : JSON.parse(people_reader))
-    handle_rentals(rentals_reader == '' ? [] : JSON.parse(rentals_reader))
+
+    # handle_people(people_reader == '' ? [] : JSON.parse(people_reader))
+    # handle_rentals(rentals_reader == '' ? [] : JSON.parse(rentals_reader))
   end
 
+  # def handle_people(arr)
+  #   arr.each do |person|
+  #     if person['person'] == 'Teacher'
+  #       teacher = Teacher.new(person['age'], person['specialization'], person['name'])
+  #       teacher.id = person['id']
+  #       @peoples.push(teacher)
+  #     else
+  #       student = Student.new(person['age'], person['name'], parent_permission: person['parent_permission'])
+  #       student.id = person['id']
+  #       @peoples.push(student)
+  #     end
+  #   end
+  # end
+
+  # def handle_rentals(arr)
+  #   arr.each do |x|
+  #     find_a_person = @peoples.select { |p| p.id == x['person'] }
+  #     find_a_book = @books.select { |b| b.title == x['book'].to_s }
+  #     @rentals_list.push(Rental.new(x['date'], find_a_book[0], find_a_person[0]))
+  #   end
+  # end
+  
   # create a list of BOOK
   def list_books
     if @books.empty?
@@ -39,7 +63,7 @@ class App
       return
     end
     @peoples.each do |people|
-      puts "Name: #{people.name}, ID: #{people.id}, Age: #{people.age}"
+      puts "[#{people.class}] Name: #{people.name}, ID: #{people.id}, Age: #{people.age}"
     end
   end
 

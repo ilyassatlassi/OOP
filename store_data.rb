@@ -32,5 +32,5 @@ def save_rentals(array)
                          age: e.age
                        })
     end
-    File.write("#{base}/people_list.json", empty_array.to_json, mode: 'w')
+    File.write("#{base}/people.json", empty_array.to_json, mode: 'w')
   end

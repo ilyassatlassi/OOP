@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+
+    {
+      "name": "Debug with Pry",
+      "type": "Ruby",
+      "request": "launch",
+      "program": "${workspaceFolder}/main.rb",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "bundle-install"
+    }
+  ]
+}
