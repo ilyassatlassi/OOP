@@ -40,6 +40,6 @@ describe Student do
 
       expect(student.classroom).to eq(classroom)
       expect(classroom.students.count(student)).to eq(1)
-    end
-  end
+    end
+  end
 end

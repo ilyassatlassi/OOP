@@ -1,4 +1,3 @@
-
 require_relative 'spec_helper'
 
 describe Decorator do
@@ -15,6 +14,6 @@ describe Decorator do
     it 'calls the correct_name method on the nameable object' do
       expect(nameable).to receive(:correct_name)
       decorator.correct_name
-    end
-  end
+    end
+  end
 end

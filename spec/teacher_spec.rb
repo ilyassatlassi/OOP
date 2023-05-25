@@ -25,6 +25,6 @@ describe Teacher do
   describe '#can_use_services?' do
     it 'returns true' do
       expect(teacher.can_use_services?).to be true
-    end
-  end
+    end
+  end
 end
